@@ -8,9 +8,12 @@ description: your trusted guide to U.S. law. Learn about personal injury, divorc
 #-------------------------------
 # Author Global Settings
 author:
-  author__name: Ur Lawyer Garen
-  author__bio: I worked for 12 years in Los Angeles and San Francisco Bay Area as a trial lawyer, mainly in criminal defense but also as a plaintiff's lawyer in Asbestos related civil litigation
-  author__avatar: /images/Lawyer-Garen.webp
+  - author__name: Ur Lawyer Garen
+    author__bio: I worked for 12 years in Los Angeles and San Francisco Bay Area as a trial lawyer, mainly in criminal defense but also as a plaintiff's lawyer in Asbestos related civil litigation.
+    author__avatar: /images/Lawyer-Garen.webp
+  - author__name: Ur Lawyer Mary
+    author__bio:  I am a personal injury and trucking trial lawyer who helps people injured by commercial motor vehicles, and their families, receive fair treatment by insurance companies. 
+    author__avatar: /images/Lawyer-Mary.webp
 
 
 #-------------------------------
