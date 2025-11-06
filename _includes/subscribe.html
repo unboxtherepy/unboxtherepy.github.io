@@ -12,7 +12,7 @@
               <p class="subscribe__description">{{ site.data.settings.mailchimp.mailchimp__description }}</p>
             {% endif %}
           </div>
-          <form class="ml-block-form subscribe-form validate" id="membedded-subscribe-form" action="https://assets.mailerlite.com/jsonp/1902722/forms/170304439745250867/subscribe" data-code="" method="post" target="_blank" novalidate>
+          <form class="ml-block-form subscribe-form" id="membedded-subscribe-form" action="https://assets.mailerlite.com/jsonp/1902722/forms/170304439745250867/subscribe" data-code="" method="post" target="_blank">
             <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
             <input aria-label="email" aria-required="true" type="email" id="mce-EMAIL" class="subscribe-email required email" data-inputmask="" name="fields[email]" placeholder="{% if site.data.settings.mailchimp.mailchimp__input__text %}{{ site.data.settings.mailchimp.mailchimp__input__text }}{% else %}Email address{% endif %}" autocomplete="email">
             <button class="button button--primary subscribe-button" id="membedded-subscribe" type="submit" name="subscribe">{{ site.data.settings.mailchimp.mailchimp__button__text }}</button>
