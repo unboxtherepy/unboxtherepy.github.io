@@ -12,12 +12,12 @@
           <div class="logo">
             <a class="logo__link" href="{{ site.baseurl }}/">
               {% if site.data.settings.logo %}
-                <img class="logo__image" src="{{ site.baseurl }}{{ site.data.settings.logo }}" alt="{{ site.data.settings.title }}"> <span>{{ site.data.settings.title }}</span>
+                <img class="logo__image" src="{{ site.baseurl }}{{ site.data.settings.logo }}" alt="{{ site.data.settings.logo_text }}"> <span>{{ site.data.settings.logo_text }}</span>
               {% else %}
-                {{ site.data.settings.title }}
+                {{ site.data.settings.logo_text }}
               {% endif %}
               <hr>
-              
+
               <h3 class="widget-author__title">{{ site.data.settings.description }}</h3>
             </a>
         </div>
