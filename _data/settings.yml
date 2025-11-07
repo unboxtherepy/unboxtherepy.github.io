@@ -70,8 +70,6 @@ mailchimp:
 # Footer Navigation
 footer__menu__settings:
   menu__items:
-    - title: 'Home'
-      url: '/'
     - title: 'About'
       url: '/about/'
     - title: 'Contact'
