@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Disclaimer"
-permalink: /disclaimer
+permalink: /disclaimer/
 description: "Disclaimer for Ur-Lawyer: Informational legal content regarding personal injury lawyers, accident lawyers, divorce lawyers, immigration lawyers, family lawyers, criminal lawyers, and more in the United States."
 ---
 
