@@ -80,10 +80,14 @@ footer__menu__settings:
       url: '/about/'
     - title: 'Contact'
       url: '/contact/'
+    - title: 'Privacy Policy'
+      url: '/privacy-policy/'
+    - title: 'Disclaimer'
+      url: '/disclaimer/'
+    - title: 'Terms and Conditions'
+      url: '/terms-and-conditions/'
     - title: 'Authors'
       url: '/authors/'
-    - title: 'Elements'
-      url: '/elements/'
 
 
 # Social Links
