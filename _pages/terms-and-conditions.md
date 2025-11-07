@@ -5,7 +5,7 @@ permalink: /terms-and-conditions/
 description: "Terms and Conditions for Ur-Lawyer, outlining website usage rules, limitations of liability, and user responsibilities regarding legal information content."
 ---
 
-Welcome to **[Ur-Lawyer](https://ur-lawyer.github.io/)**. By accessing or using this website, you agree to follow the terms and conditions outlined below. If you do not agree with these terms, please discontinue use of this website immediately.
+Welcome to [**Ur-Lawyer**](https://ur-lawyer.github.io/). By accessing or using this website, you agree to follow the terms and conditions outlined below. If you do not agree with these terms, please discontinue use of this website immediately.
 
 This website provides **general informational content** related to legal topics, including **personal injury lawyers, accident lawyers, divorce lawyers, immigration lawyers, family lawyers, criminal lawyers, medical malpractice lawyers, employment lawyers, child custody lawyers, tax lawyers, probate lawyers, traffic ticket lawyers, tenant lawyers, truck accident lawyers, car accident lawyers, and slip and fall lawyers**. However, this information **is not legal advice**.
 
@@ -105,6 +105,4 @@ Changes will be posted on this page with the updated date below.
 
 ## 9. Contact Us
 
-If you have any questions about these Terms and Conditions, please contact us through our **Contact Page**:
-
-**https://ur-lawyer.github.io/contact/**
+If you have any questions about these Terms and Conditions, please contact us through our [**Contact Page**](https://ur-lawyer.github.io/contact/).

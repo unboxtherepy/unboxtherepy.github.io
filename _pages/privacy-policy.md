@@ -105,4 +105,4 @@ Changes will be reflected on this page with the updated date below.
 
 ## Contact Us
 
-If you have any questions regarding this Privacy Policy, please contact us through our **[Contact Page](https://ur-lawyer.github.io/contact/)**
+If you have any questions regarding this Privacy Policy, please contact us through our [**Contact Page**](https://ur-lawyer.github.io/contact/)

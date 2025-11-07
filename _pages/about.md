@@ -6,7 +6,7 @@ description: "Learn about Ur Lawyer — your trusted online resource for legal g
 image: '/images/about.webp'
 ---
 
-Welcome to **[Ur-Lawyer](https://ur-lawyer.github.io/)**, your trusted online destination for reliable, easy-to-understand legal information. We provide helpful resources, guides, and insights to help individuals and families make informed decisions when facing legal challenges in the **United States**.
+Welcome to [**Ur-Lawyer**](https://ur-lawyer.github.io/), your trusted online destination for reliable, easy-to-understand legal information. We provide helpful resources, guides, and insights to help individuals and families make informed decisions when facing legal challenges in the **United States**.
 
 Our mission is simple:  
 **To make legal information accessible, clear, and useful for everyone — no matter your background or situation.**
@@ -79,6 +79,6 @@ To empower people just like you to:
 
 We’re here to support you with knowledge — because **knowing your rights is your greatest advantage**.
 
-If you have questions, suggestions, or collaboration inquiries, please reach out through our **[Contact Us](/contact/)** page.
+If you have questions, suggestions, or collaboration inquiries, please reach out through our [**Contact Us**](/contact/) page.
 
 ---
