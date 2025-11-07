@@ -99,8 +99,6 @@ We do not knowingly collect data from minors.
 We may update this Privacy Policy occasionally.  
 Changes will be reflected on this page with the updated date below.
 
-**Last Updated:** {{ site.time | date: "%B %d, %Y" }}
-
 ---
 
 ## Contact Us

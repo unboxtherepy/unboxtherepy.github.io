@@ -99,8 +99,6 @@ You are solely responsible for decisions made based on information found on this
 We may update these Terms and Conditions at any time.  
 Changes will be posted on this page with the updated date below.
 
-**Last Updated:** {{ site.time | date: "%B %d, %Y" }}
-
 ---
 
 ## 9. Contact Us
