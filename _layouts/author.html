@@ -19,6 +19,8 @@ layout: default
       {% if page.location %}
         <span class="author__social__item"><i class="ion ion-md-pin"></i></span>
       {% endif %}
+      {% if page.linkedin %}
+        <a class="author__social__item" href="{{ page.linkedin }}" aria-label="linkedin link"><i class="ion ion-logo-linkedin"></i></a>
       {% if page.website %}
         <a class="author__social__item" href="{{ page.website }}" aria-label="Website link"><i class="ion ion-ios-link"></i></a>
       {% endif %}
