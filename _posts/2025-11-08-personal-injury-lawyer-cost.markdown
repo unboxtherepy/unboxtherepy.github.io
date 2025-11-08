@@ -48,9 +48,6 @@ The percentage can vary depending on:
 
 This system benefits injured people because:
 
-![Lawyers Cost in USA]({{site.baseurl}}/images/Why-Lawyers-Use-Contingency-Fees.webp){:loading="lazy"}
-
-
 - There is **no financial risk** to the client.
 - Anyone can access legal help, even if they cannot afford upfront costs.
 - The lawyer is motivated to win since they only get paid if you do.
