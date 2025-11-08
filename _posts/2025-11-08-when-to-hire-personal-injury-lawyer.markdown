@@ -34,7 +34,7 @@ Their primary responsibility is to protect your rights and negotiate a fair sett
 
 While not every minor accident requires legal representation, there are specific situations where hiring a personal injury lawyer in the USA is highly recommended.
 
-![Personal Injury]({{site.baseurl}}/images/when-You-Have-Serious-or-Long-Term.webp){:loading="lazy"}
+<!-- ![Personal Injury]({{site.baseurl}}/images/when-You-Have-Serious-or-Long-Term.webp){:loading="lazy"} -->
 
 
 ### 1. When You Have Serious or Long-Term Injuries
