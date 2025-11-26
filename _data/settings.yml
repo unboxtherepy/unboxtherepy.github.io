@@ -34,14 +34,14 @@ menu__settings:
 #-------------------------------
 # Hero Settings
 hero:
-  hero__title: Your Trusted Legal Educator for Every Case in the U.S
+  hero__title: We Reveal What Others Hide.
 
 
 #-------------------------------
 # Blog Settings
 blog:
   blog__title: Blog & Resources
-  blog__description: Learn about personal injury, divorce, immigration, employment, criminal, tax, and accident lawyers. Get practical legal advice for every situation.
+  blog__description: From tech gadgets to everyday essentials, our blog delivers practical tips, pros and cons, and detailed product breakdowns to help you choose the right items for your needs.
 
 
 
