@@ -3,7 +3,6 @@ layout: page
 title: "Terms and Conditions"
 permalink: /terms-and-conditions/
 description: "Terms and Conditions for Unbox Therepy — usage rules, disclaimers, copyrights, and user responsibilities."
-image: /assets/images/og-terms.jpg
 ---
 
 Welcome to **[Unbox Therepy](unboxtherepy.github.io)**. By accessing or using our website, you agree to these Terms and Conditions. Please read them carefully before using the site.
