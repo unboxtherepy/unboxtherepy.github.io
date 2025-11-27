@@ -81,6 +81,10 @@ footer__menu__settings:
       url: '/disclaimer/'
     - title: 'Terms and Conditions'
       url: '/terms-and-conditions/'
+    - title: 'Affiliate Disclosure'
+      url: '/affiliate-disclosure/'
+    - title: 'Review Policy'
+      url: '/review-policy/'
     - title: 'Authors'
       url: '/authors/'
 
