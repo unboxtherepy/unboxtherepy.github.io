@@ -1,6 +1,6 @@
 ---
 username: JayFindsThings
-name: Jay
+name: JayFindsThings
 image: '/images/Jay.webp'
 youtube: https://www.youtube.com/@JayFindsThings
 
