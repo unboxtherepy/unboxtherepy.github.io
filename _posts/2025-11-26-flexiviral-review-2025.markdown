@@ -4,7 +4,7 @@ title: "FlexiViral Review 2025 — The Viral Lead Generation App That Multiplies
 description: "FlexiViral review — learn how this viral lead-generation app uses referral loops, rewards and gamification to scale email lists 10×–100× without ad spend. Launch details, pricing, features, pros & cons, and who should buy."
 author: Mary
 image: '/images/featured_flexiviral-review-2025.webp'
-tags: [Review]
+tags: [Software Review]
 featured: false
 ---
 

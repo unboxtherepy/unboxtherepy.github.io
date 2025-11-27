@@ -1,21 +1,10 @@
 ---
 layout: page
-title: "About Us"
+title: "About — Unbox Therepy"
+description: "Unbox Therepy is an independent product review site that strips away the hype—honest unboxings, hands-on tests, and buying advice to help you choose with confidence."
 permalink: /about/
-description: "Learn about Ur Lawyer — your trusted online resource for legal guidance on personal injury, accident claims, family law, criminal defense, immigration services, and more in the United States."
 image: '/images/about.webp'
 ---
-
----
-
-layout: page
-title: "About — Unbox Therepy"
-permalink: /about/
-description: "Unbox Therepy is an independent product review site that strips away the hype—honest unboxings, hands-on tests, and buying advice to help you choose with confidence."
-image: /assets/images/og-about.jpg
-----------------------------------
-
-# About Unbox Therepy
 
 **Unbox Therepy — Where products get naked.**
 
