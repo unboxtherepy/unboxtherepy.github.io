@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Vital Energy Reset Review"
-description: "An in-depth, SEO-optimized review of Vital Energy Reset. Learn its benefits, ingredients, effectiveness, side effects, pricing, and whether it's worth buying in 2025."
+description: "Review of Vital Energy Reset. Learn its benefits, ingredients, effectiveness, side effects, pricing, and whether it's worth buying in 2025."
 author: JayFindsThings
 image: '/images/featured_vital-energy-reset-review.webp'
 afflink: "https://reikihealinghub.eu/vital-energy-reset-affiliate-program-50-commissions-jv-page"
