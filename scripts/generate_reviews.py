@@ -22,32 +22,6 @@ from review_article_generator import (
 from image_generator import generate_image_freepik
 
 
-def submit_to_google_indexing_safe(post_url):
-    """Safely attempt Google Indexing (optional)"""
-    if not ENABLE_GOOGLE_INDEXING:
-        print("⏭️  Google Indexing disabled (no credentials)")
-        return "Disabled"
-    
-    try:
-        from google_indexing import submit_to_google_indexing, check_indexing_status
-        
-        print(f"\n{'='*60}")
-        print(f"📤 Submitting to Google Search Console")
-        print(f"{'='*60}")
-        
-        success = submit_to_google_indexing(post_url)
-        if success:
-            time.sleep(10)
-            status_result = check_indexing_status(post_url)
-            if status_result and 'latestUpdate' in status_result:
-                return "Confirmed in Queue"
-            return "Success"
-        return "Failed"
-    except Exception as e:
-        print(f"⚠️  Google Indexing failed: {e}")
-        return f"Failed - {str(e)[:100]}"
-
-
 def send_push_notification_safe(title, permalink, focus_kw):
     """Safely attempt push notification (optional)"""
     if not ENABLE_PUSH_NOTIFICATIONS:
@@ -257,10 +231,7 @@ def main():
                     time.sleep(30)
                 
                 print(f"\n✅ Wait complete!")
-                
-                # Submit to Google (optional)
-                indexing_status = submit_to_google_indexing_safe(post_url)
-                
+                                
                 # Log to database
                 print(f"\n{'='*60}")
                 print(f"Step 9: Logging to Reviews Database")

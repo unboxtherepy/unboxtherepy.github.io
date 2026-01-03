@@ -29,7 +29,6 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           WEBPUSHR_API_KEY: ${{ secrets.WEBPUSHR_API_KEY }}
           WEBPUSHR_AUTH_TOKEN: ${{ secrets.WEBPUSHR_AUTH_TOKEN }}
         run: |
