@@ -6,19 +6,12 @@ from datetime import datetime, timedelta
 import time
 
 MUNCHEYE_URL = "https://muncheye.com/"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 
 def scrape_muncheye_products(sections=None, limit_per_section=5):
     """
-    Scrape products from MunchEye
-    
-    Args:
-        sections: List of sections to scrape ['big_launches', 'just_launched', 'all_launches']
-        limit_per_section: Number of products to get from each section
-    
-    Returns:
-        List of product dictionaries
+    Scrape products from MunchEye - IMPROVED VERSION
     """
     if sections is None:
         sections = ['big_launches', 'just_launched']
@@ -26,30 +19,41 @@ def scrape_muncheye_products(sections=None, limit_per_section=5):
     print(f"🔍 Scraping MunchEye.com...")
     
     try:
-        headers = {'User-Agent': USER_AGENT}
+        headers = {
+            'User-Agent': USER_AGENT,
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Connection': 'keep-alive',
+        }
         response = requests.get(MUNCHEYE_URL, headers=headers, timeout=30)
         response.raise_for_status()
         
         soup = BeautifulSoup(response.content, 'html.parser')
         products = []
         
-        # Scrape Big Launches
-        if 'big_launches' in sections:
-            print(f"\n📊 Scraping Big Launches...")
-            big_launches = scrape_big_launches(soup, limit_per_section)
-            products.extend(big_launches)
+        # Try to find ANY product listings
+        print(f"\n🔎 Searching for product listings...")
         
-        # Scrape Just Launched
-        if 'just_launched' in sections:
-            print(f"\n🚀 Scraping Just Launched...")
-            just_launched = scrape_just_launched(soup, limit_per_section)
-            products.extend(just_launched)
+        # Method 1: Look for product links
+        product_links = soup.find_all('a', href=re.compile(r'/[a-z0-9-]+/?$'))
         
-        # Scrape All Launches (future products)
-        if 'all_launches' in sections:
-            print(f"\n📅 Scraping All Launches...")
-            all_launches = scrape_all_launches(soup, limit_per_section)
-            products.extend(all_launches)
+        if product_links:
+            print(f"✅ Found {len(product_links)} potential product links")
+            
+            for link in product_links[:limit_per_section * 3]:
+                try:
+                    product = extract_product_from_link(link)
+                    if product and product['name'] != 'Unknown Product':
+                        products.append(product)
+                        if len(products) >= limit_per_section * len(sections):
+                            break
+                except Exception as e:
+                    continue
+        
+        # Method 2: Look for structured product data
+        if not products:
+            print(f"⚠️ No products from links, trying alternative methods...")
+            products = scrape_alternative_structure(soup, limit_per_section * len(sections))
         
         print(f"\n✅ Total products scraped: {len(products)}")
         return products
@@ -59,149 +63,118 @@ def scrape_muncheye_products(sections=None, limit_per_section=5):
         return []
 
 
-def scrape_big_launches(soup, limit):
-    """Scrape Big Launches section"""
-    products = []
+def extract_product_from_link(link_element):
+    """Extract product info from a link element"""
     
-    # Find the "Big Launches" section
-    big_launches_section = soup.find('h2', text='Big Launches')
-    if not big_launches_section:
-        print("⚠️ Big Launches section not found")
-        return products
-    
-    # Get the table/list after the heading
-    launches_container = big_launches_section.find_next_sibling()
-    if not launches_container:
-        return products
-    
-    # Find all launch entries
-    launch_items = launches_container.find_all(['div', 'li', 'tr'], limit=limit)
-    
-    for item in launch_items[:limit]:
-        try:
-            product = extract_product_info(item, 'Big Launch')
-            if product:
-                products.append(product)
-        except Exception as e:
-            print(f"⚠️ Error parsing big launch item: {e}")
-            continue
-    
-    return products
-
-
-def scrape_just_launched(soup, limit):
-    """Scrape Just Launched section"""
-    products = []
-    
-    # Find the "Just Launched" section
-    just_launched_section = soup.find('h2', text='Just Launched')
-    if not just_launched_section:
-        print("⚠️ Just Launched section not found")
-        return products
-    
-    launches_container = just_launched_section.find_next_sibling()
-    if not launches_container:
-        return products
-    
-    launch_items = launches_container.find_all(['div', 'li', 'tr'], limit=limit)
-    
-    for item in launch_items[:limit]:
-        try:
-            product = extract_product_info(item, 'Just Launched')
-            if product:
-                products.append(product)
-        except Exception as e:
-            print(f"⚠️ Error parsing just launched item: {e}")
-            continue
-    
-    return products
-
-
-def scrape_all_launches(soup, limit):
-    """Scrape All Launches section (future products)"""
-    products = []
-    
-    all_launches_section = soup.find('h2', text='All Launches')
-    if not all_launches_section:
-        print("⚠️ All Launches section not found")
-        return products
-    
-    launches_container = all_launches_section.find_next_sibling()
-    if not launches_container:
-        return products
-    
-    launch_items = launches_container.find_all(['div', 'li', 'tr'], limit=limit)
-    
-    for item in launch_items[:limit]:
-        try:
-            product = extract_product_info(item, 'Upcoming Launch')
-            if product:
-                products.append(product)
-        except Exception as e:
-            print(f"⚠️ Error parsing all launch item: {e}")
-            continue
-    
-    return products
-
-
-def extract_product_info(element, category):
-    """Extract product information from HTML element"""
-    
-    # Find link to product page
-    link = element.find('a')
-    if not link:
+    href = link_element.get('href', '')
+    if not href or href in ['/', '#', 'http://muncheye.com', 'https://muncheye.com']:
         return None
     
-    product_url = link.get('href', '')
-    if not product_url.startswith('http'):
-        product_url = MUNCHEYE_URL.rstrip('/') + '/' + product_url.lstrip('/')
+    # Get full URL
+    if not href.startswith('http'):
+        href = MUNCHEYE_URL.rstrip('/') + '/' + href.lstrip('/')
     
-    # Extract product name
-    product_name = link.get_text(strip=True)
+    # Get product name from link text
+    product_text = link_element.get_text(strip=True)
     
-    # Try to extract creator name (usually before colon)
+    if not product_text or len(product_text) < 5:
+        return None
+    
+    # Parse creator and product name
     creator = ""
-    if ':' in product_name:
-        parts = product_name.split(':', 1)
+    product_name = product_text
+    
+    if ':' in product_text:
+        parts = product_text.split(':', 1)
         creator = parts[0].strip()
-        product_name = parts[1].strip() if len(parts) > 1 else product_name
+        product_name = parts[1].strip() if len(parts) > 1 else product_text
+    
+    # Try to find parent container for more info
+    parent = link_element.find_parent(['div', 'li', 'tr'])
+    
+    # Extract date, price, commission from parent
+    parent_text = parent.get_text() if parent else ""
     
     # Extract date
-    date_text = element.get_text()
-    launch_date = extract_date(date_text)
+    launch_date = extract_date(parent_text) if parent_text else datetime.now().strftime('%Y-%m-%d')
     
-    # Extract price and commission
-    price_match = re.search(r'\$?(\d+(?:\.\d+)?)', date_text)
-    price = price_match.group(1) if price_match else "N/A"
+    # Extract price
+    price_match = re.search(r'\$\s?(\d+(?:\.\d+)?)', parent_text)
+    price = price_match.group(1) if price_match else "Unknown"
     
-    commission_match = re.search(r'at\s+(\d+)%', date_text)
-    commission = commission_match.group(1) if commission_match else "N/A"
+    # Extract commission
+    commission_match = re.search(r'at\s+(\d+)%', parent_text)
+    commission = commission_match.group(1) if commission_match else "50"
     
-    # Extract platform (JVZoo, WarriorPlus, etc.)
-    platform = extract_platform(element)
+    # Extract platform
+    platform = extract_platform_from_text(parent_text) if parent_text else "Unknown"
     
     product_data = {
         'name': product_name,
-        'creator': creator,
-        'url': product_url,
+        'creator': creator if creator else "Unknown Creator",
+        'url': href,
         'launch_date': launch_date,
         'price': price,
         'commission': commission,
         'platform': platform,
-        'category': category,
+        'category': 'Product Launch',
         'scraped_at': datetime.now().isoformat()
     }
     
-    print(f"✅ Found: {creator}: {product_name} (${price} at {commission}%)")
+    print(f"✅ Found: {creator}: {product_name} (${price})")
     
     return product_data
+
+
+def scrape_alternative_structure(soup, limit):
+    """Alternative scraping method if main structure fails"""
+    products = []
+    
+    print(f"🔄 Trying alternative scraping methods...")
+    
+    # Look for any div/section with product-like content
+    containers = soup.find_all(['div', 'article', 'section'], class_=re.compile(r'product|launch|post'))
+    
+    print(f"📦 Found {len(containers)} potential product containers")
+    
+    for container in containers[:limit * 2]:
+        try:
+            # Find link in container
+            link = container.find('a', href=True)
+            if not link:
+                continue
+            
+            product = extract_product_from_link(link)
+            if product and product not in products:
+                products.append(product)
+                
+        except Exception as e:
+            continue
+    
+    return products[:limit]
+
+
+def extract_platform_from_text(text):
+    """Extract platform from text"""
+    text_lower = text.lower()
+    
+    if 'jvzoo' in text_lower or 'jvz' in text_lower:
+        return 'JVZoo'
+    elif 'warrior' in text_lower or 'w+' in text_lower:
+        return 'WarriorPlus'
+    elif 'clickbank' in text_lower:
+        return 'ClickBank'
+    elif 'paykickstart' in text_lower:
+        return 'PayKickstart'
+    
+    return 'Unknown'
 
 
 def extract_date(text):
     """Extract launch date from text"""
     today = datetime.now()
     
-    # Try to find date pattern (e.g., "6 Jan", "Jan 6")
+    # Try to find date pattern
     date_pattern = r'(\d{1,2})\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)'
     match = re.search(date_pattern, text, re.IGNORECASE)
     
@@ -217,7 +190,6 @@ def extract_date(text):
         month = months.get(month_abbr, today.month)
         year = today.year
         
-        # If date is in the past this year, assume next year
         try:
             date = datetime(year, month, day)
             if date < today:
@@ -229,107 +201,62 @@ def extract_date(text):
     return today.strftime('%Y-%m-%d')
 
 
-def extract_platform(element):
-    """Extract affiliate platform from element"""
-    text = element.get_text()
-    
-    if 'jvzoo' in text.lower():
-        return 'JVZoo'
-    elif 'warrior' in text.lower():
-        return 'WarriorPlus'
-    elif 'clickbank' in text.lower():
-        return 'ClickBank'
-    elif 'paykickstart' in text.lower():
-        return 'PayKickstart'
-    
-    # Try to find from image alt text
-    img = element.find('img')
-    if img:
-        alt_text = img.get('alt', '').lower()
-        if 'jvzoo' in alt_text:
-            return 'JVZoo'
-        elif 'warrior' in alt_text:
-            return 'WarriorPlus'
-    
-    return 'Unknown'
-
-
-def filter_products_for_review(products, days_threshold=7):
-    """
-    Filter products suitable for review
-    - Recently launched (within last N days)
-    - Or launching soon (within next N days)
-    """
-    today = datetime.now()
-    filtered = []
-    
-    for product in products:
-        try:
-            launch_date = datetime.strptime(product['launch_date'], '%Y-%m-%d')
-            days_diff = (launch_date - today).days
-            
-            # Include if launched recently or launching soon
-            if -days_threshold <= days_diff <= days_threshold:
-                filtered.append(product)
-        except Exception as e:
-            print(f"⚠️ Error filtering product: {e}")
-            continue
-    
-    return filtered
-
-
-def get_products_for_review(limit=5):
+def get_products_for_review(limit=5, categories=None):
     """
     Get products ready for review
-    
-    Returns:
-        List of products to review (will fetch 3x limit to account for duplicates)
     """
     print(f"\n{'='*60}")
     print(f"🎯 Fetching products from MunchEye")
+    if categories:
+        print(f"🏷️  Filtering by categories: {', '.join(categories)}")
     print(f"{'='*60}")
     
-    # Scrape more products to account for potential duplicates
-    fetch_limit = limit * 3
+    # Scrape products with increased limit
+    fetch_limit = limit * 5  # Get even more to ensure we have enough
     
     products = scrape_muncheye_products(
-        sections=['just_launched', 'big_launches', 'all_launches'],
-        limit_per_section=fetch_limit  # Get more from each section
+        sections=['big_launches', 'just_launched', 'all_launches'],
+        limit_per_section=fetch_limit
     )
     
     if not products:
         print("❌ No products found")
+        print("💡 This might be because:")
+        print("   - MunchEye structure has changed")
+        print("   - Network issues")
+        print("   - Bot detection")
         return []
     
-    # Filter for recent/upcoming products
-    filtered = filter_products_for_review(products, days_threshold=30)  # Increased to 30 days
+    print(f"\n✅ Found {len(products)} total products")
     
-    # Remove duplicates based on product name
+    # Remove duplicates
     seen = set()
     unique_products = []
-    for p in filtered:
+    for p in products:
         product_key = f"{p['creator'].lower()}-{p['name'].lower()}"
         if product_key not in seen:
             seen.add(product_key)
             unique_products.append(p)
     
-    print(f"\n✅ Found {len(unique_products)} unique products")
+    print(f"✅ {len(unique_products)} unique products after deduplication")
     
-    # Return all unique products (will be filtered for duplicates later)
     return unique_products
 
 
 if __name__ == "__main__":
     # Test the scraper
+    print("Testing MunchEye scraper...")
     products = get_products_for_review(limit=5)
     
-    print(f"\n{'='*60}")
-    print(f"📊 Review Summary")
-    print(f"{'='*60}")
-    
-    for i, product in enumerate(products, 1):
-        print(f"\n{i}. {product['creator']}: {product['name']}")
-        print(f"   Price: ${product['price']} | Commission: {product['commission']}%")
-        print(f"   Platform: {product['platform']}")
-        print(f"   Launch: {product['launch_date']}")
-        print(f"   URL: {product['url']}")
+    if products:
+        print(f"\n{'='*60}")
+        print(f"📊 Sample Products")
+        print(f"{'='*60}")
+        
+        for i, product in enumerate(products[:5], 1):
+            print(f"\n{i}. {product['creator']}: {product['name']}")
+            print(f"   Price: ${product['price']} | Commission: {product['commission']}%")
+            print(f"   Platform: {product['platform']}")
+            print(f"   URL: {product['url']}")
+    else:
+        print("\n❌ No products found - scraper may need updates")
