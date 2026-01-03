@@ -29,6 +29,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           WEBPUSHR_API_KEY: ${{ secrets.WEBPUSHR_API_KEY }}
           WEBPUSHR_AUTH_TOKEN: ${{ secrets.WEBPUSHR_AUTH_TOKEN }}
         run: |
@@ -40,11 +41,10 @@ jobs:
           git config user.email "bot@github.com"
 
           # Add generated files (database may not exist on first run)
-          git add _posts/ images/
+          git add _posts/ images/ _data/
           
-          # Add database if it exists
-          if [ -f "reviews_database.json" ]; then
-            git add reviews_database.json
+          # Check if database was created
+          if [ -f "_data/reviews_database.json" ]; then
             echo "✅ Added reviews_database.json"
           else
             echo "⚠️  reviews_database.json not found (first run?)"

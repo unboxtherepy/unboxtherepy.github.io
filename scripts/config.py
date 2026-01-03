@@ -4,13 +4,14 @@ import os
 # File paths
 POSTS_DIR = "_posts"
 IMAGES_DIR = "images"
-REVIEWS_DB_FILE = "reviews_database.json"
+DATA_DIR = "_data"
+REVIEWS_DB_FILE = "_data/reviews_database.json"  # Store in _data folder (Jekyll convention)
 
 # Site settings
 SITE_DOMAIN = "https://unboxtherapy.github.io"
 
 # AI Models
-TEXT_MODEL = "gemini-2.5-flash"
+TEXT_MODEL = "gemini-1.5-pro"
 FREEPIK_ENDPOINT = "https://api.freepik.com/v1/ai/text-to-image/flux-dev"
 
 # Generation settings
@@ -33,6 +34,9 @@ REVIEW_RECENT_DAYS = 14
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 FREEPIK_API_KEY = os.environ.get("FREEPIK_API_KEY")
 
+# Google Indexing (Optional - only for submitting URLs to Google)
+GOOGLE_SERVICE_ACCOUNT_JSON = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "")
+ENABLE_GOOGLE_INDEXING = bool(GOOGLE_SERVICE_ACCOUNT_JSON)
 
 # Push Notifications (Optional)
 WEBPUSHR_API_KEY = os.environ.get("WEBPUSHR_API_KEY", "")
