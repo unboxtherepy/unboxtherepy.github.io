@@ -5,7 +5,7 @@ permalink: /affiliate-disclosure/
 description: "Affiliate Disclosure for Unbox Therepy — transparency about affiliate links and commissions."
 ---
 
-At **[Unbox Therepy](unboxtherepy.github.io)**, transparency is important to us. This Affiliate Disclosure explains how affiliate links work on our site and how they support our content.
+At **[Unbox Therepy](unboxtherapy.github.io)**, transparency is important to us. This Affiliate Disclosure explains how affiliate links work on our site and how they support our content.
 
 ## 1. What Are Affiliate Links?
 

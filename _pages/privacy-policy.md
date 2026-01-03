@@ -5,7 +5,7 @@ permalink: /privacy-policy/
 description: "Privacy Policy for Unbox Therepy — how we collect, use, and protect your information."
 ---
 
-Thank you for visiting **[Unbox Therepy](unboxtherepy.github.io)**. Your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.
+Thank you for visiting **[Unbox Therepy](unboxtherapy.github.io)**. Your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.
 
 ## 1. Information We Collect
 

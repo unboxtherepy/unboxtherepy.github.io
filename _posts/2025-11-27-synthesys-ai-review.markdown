@@ -315,4 +315,4 @@ Yes, most assets include commercial usage rights.
 
 Synthesys.IO is one of the most advanced AI creators on the market. Whether you want videos, voices, or AI images, it delivers excellent value and unique tools not found elsewhere.
 
-You can explore more AI reviews and comparisons at **UnboxTherepy – Where Products Get Naked**.
+You can explore more AI reviews and comparisons at **unboxtherapy – Where Products Get Naked**.

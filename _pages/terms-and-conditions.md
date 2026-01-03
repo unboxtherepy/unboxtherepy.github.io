@@ -5,7 +5,7 @@ permalink: /terms-and-conditions/
 description: "Terms and Conditions for Unbox Therepy — usage rules, disclaimers, copyrights, and user responsibilities."
 ---
 
-Welcome to **[Unbox Therepy](unboxtherepy.github.io)**. By accessing or using our website, you agree to these Terms and Conditions. Please read them carefully before using the site.
+Welcome to **[Unbox Therepy](unboxtherapy.github.io)**. By accessing or using our website, you agree to these Terms and Conditions. Please read them carefully before using the site.
 
 ---
 
@@ -128,11 +128,11 @@ permalink: /terms-and-conditions/
 
 **Last Updated: {{ site.time | date: '%B %d, %Y' }}**
 
-Welcome to **UnboxTherepy** ("we", "our", or "the website"), accessible at **[https://unboxtherepy.github.io](https://unboxtherepy.github.io)**. By using our website, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree, please discontinue use of the website immediately.
+Welcome to **unboxtherapy** ("we", "our", or "the website"), accessible at **[https://unboxtherapy.github.io](https://unboxtherapy.github.io)**. By using our website, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree, please discontinue use of the website immediately.
 
 ## 1. Acceptance of Terms
 
-By accessing and using UnboxTherepy, you acknowledge that you have read, understood, and agree to these Terms and Conditions.
+By accessing and using unboxtherapy, you acknowledge that you have read, understood, and agree to these Terms and Conditions.
 
 ## 2. Use of Website Content
 
@@ -152,7 +152,7 @@ When using our site, you agree not to:
 
 ## 4. Affiliate Relationships
 
-UnboxTherepy participates in affiliate programs. Some links may earn us a commission at no extra cost to you. This does *not* influence the fairness, accuracy, or honesty of our reviews. For more details, visit our **Affiliate Disclosure** page.
+unboxtherapy participates in affiliate programs. Some links may earn us a commission at no extra cost to you. This does *not* influence the fairness, accuracy, or honesty of our reviews. For more details, visit our **Affiliate Disclosure** page.
 
 ## 5. Accuracy of Information
 
@@ -175,7 +175,7 @@ Our website may contain links to third-party products, tools, or external websit
 
 ## 7. Intellectual Property Rights
 
-All content on this website is owned by UnboxTherepy unless otherwise stated. This includes:
+All content on this website is owned by unboxtherapy unless otherwise stated. This includes:
 
 * Written reviews
 * Images created by us
@@ -186,7 +186,7 @@ Unauthorized use may lead to legal action.
 
 ## 8. Limitation of Liability
 
-UnboxTherepy is not responsible for:
+unboxtherapy is not responsible for:
 
 * Incorrect product information
 * Purchases made based on third-party listings

@@ -5,7 +5,7 @@ permalink: /review-policy/
 description: "we are committed to delivering honest, unbiased, and research-driven product reviews. Our goal is to help readers make informed decisions with full transparency into how we evaluate and recommend products"
 ---
 
-<p>At <strong>UnboxTherepy</strong>, we are committed to delivering honest, unbiased, and research-driven product reviews. Our goal is to help readers make informed decisions with full transparency into how we evaluate and recommend products.</p>
+<p>At <strong>unboxtherapy</strong>, we are committed to delivering honest, unbiased, and research-driven product reviews. Our goal is to help readers make informed decisions with full transparency into how we evaluate and recommend products.</p>
 
 <h2>1. How We Review Products</h2>
 <p>Our review process is designed to be fair, accurate, and helpful. We evaluate products based on:</p>
@@ -42,4 +42,4 @@ description: "we are committed to delivering honest, unbiased, and research-driv
 <p><strong>Email:</strong> unboxtherepy.review@gmail.com</p>
 
 <hr>
-<p>Thank you for trusting <strong>UnboxTherepy</strong>. Transparency is at the heart of every review we publish.</p>
+<p>Thank you for trusting <strong>unboxtherapy</strong>. Transparency is at the heart of every review we publish.</p>

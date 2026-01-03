@@ -5,7 +5,7 @@ permalink: /disclaimer/
 description: "Disclaimer for Unbox Therepy – product review transparency, accuracy, and liability information."
 ---
 
-Welcome to **[Unbox Therepy](unboxtherepy.github.io)**. The information provided on this website is for general informational and educational purposes only. By using our site, you agree to the terms outlined in this disclaimer.
+Welcome to **[Unbox Therepy](unboxtherapy.github.io)**. The information provided on this website is for general informational and educational purposes only. By using our site, you agree to the terms outlined in this disclaimer.
 
 ## 1. No Professional Advice
 
