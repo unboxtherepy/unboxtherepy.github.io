@@ -12,7 +12,7 @@ SHEETS_RANGE = "Sheet1!A:I"  # Range to check for existing reviews
 SITE_DOMAIN = "https://unboxtherapy.github.io"
 
 # AI Models
-TEXT_MODEL = "gemini-3.0-pro"
+TEXT_MODEL = "gemini-2.5-flash"
 FREEPIK_ENDPOINT = "https://api.freepik.com/v1/ai/text-to-image/flux-dev"
 
 # Generation settings
