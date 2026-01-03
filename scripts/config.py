@@ -11,7 +11,7 @@ REVIEWS_DB_FILE = "_data/reviews_database.json"  # Store in _data folder (Jekyll
 SITE_DOMAIN = "https://unboxtherapy.github.io"
 
 # AI Models
-TEXT_MODEL = "gemini-1.5-pro"
+TEXT_MODEL = "gemini-2.5-flash"
 FREEPIK_ENDPOINT = "https://api.freepik.com/v1/ai/text-to-image/flux-dev"
 
 # Generation settings
