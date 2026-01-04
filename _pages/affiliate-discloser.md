@@ -2,10 +2,10 @@
 layout: page
 title: "Affiliate Disclosure"
 permalink: /affiliate-disclosure/
-description: "Affiliate Disclosure for Unbox Therepy — transparency about affiliate links and commissions."
+description: "Affiliate Disclosure for Unbox Therapy — transparency about affiliate links and commissions."
 ---
 
-At **[Unbox Therepy](unboxtherapy.github.io)**, transparency is important to us. This Affiliate Disclosure explains how affiliate links work on our site and how they support our content.
+At **[Unbox Therapy](unboxtherapy.github.io)**, transparency is important to us. This Affiliate Disclosure explains how affiliate links work on our site and how they support our content.
 
 ## 1. What Are Affiliate Links?
 
@@ -57,7 +57,7 @@ Before buying any product, we encourage readers to:
 
 ## 6. Your Support Means a Lot
 
-When you use our affiliate links, you directly support Unbox Therepy and help keep the site running. We truly appreciate your trust.
+When you use our affiliate links, you directly support Unbox Therapy and help keep the site running. We truly appreciate your trust.
 
 ## 7. Contact Us
 

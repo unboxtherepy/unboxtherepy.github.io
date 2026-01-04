@@ -2,7 +2,7 @@
 layout: page
 title: "Contact Us"
 permalink: /contact/
-description: "Get in touch with Unbox Therepy for product review requests, feedback, collaborations, or media inquiries."
+description: "Get in touch with Unbox Therapy for product review requests, feedback, collaborations, or media inquiries."
 image: '/images/contact.webp'
 ---
 
@@ -34,7 +34,7 @@ If you found an error in one of our reviews or want to share your own experience
 ## 🤝 Partnerships & Advertising
 
 For sponsorship opportunities, affiliate partnerships, or long-term collaboration proposals, use the subject line:
-**“Partnership Inquiry – Unbox Therepy”**
+**“Partnership Inquiry – Unbox Therapy”**
 
 ## 📝 Stay Connected
 

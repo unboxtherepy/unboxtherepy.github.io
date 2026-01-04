@@ -1,14 +1,14 @@
 ---
 layout: page
-title: "About — Unbox Therepy"
-description: "Unbox Therepy is an independent product review site that strips away the hype—honest unboxings, hands-on tests, and buying advice to help you choose with confidence."
+title: "About — Unbox Therapy"
+description: "Unbox Therapy is an independent product review site that strips away the hype—honest unboxings, hands-on tests, and buying advice to help you choose with confidence."
 permalink: /about/
 image: '/images/about.webp'
 ---
 
-**Unbox Therepy — Where products get naked.**
+**Unbox Therapy — Where products get naked.**
 
-Welcome! We’re Unbox Therepy, an independent product review and unboxing site dedicated to revealing the real performance, quality, and value of the things you buy — from gadgets and home goods to beauty, lifestyle, and everyday essentials.
+Welcome! We’re Unbox Therapy, an independent product review and unboxing site dedicated to revealing the real performance, quality, and value of the things you buy — from gadgets and home goods to beauty, lifestyle, and everyday essentials.
 
 Our goal is simple: cut through marketing noise and give you straight, practical information so you can shop smarter.
 
@@ -33,7 +33,7 @@ Where relevant, we include benchmark data, battery/runtime figures, and side-by-
 
 ## Editorial independence
 
-Unbox Therepy is independent. We accept product samples and, in some cases, affiliate links to cover operating costs, but sponsorships and partnerships are always disclosed. Our reviews are written to be fair and transparent — if a product is great, we'll say so; if it misses the mark, we’ll tell you why.
+Unbox Therapy is independent. We accept product samples and, in some cases, affiliate links to cover operating costs, but sponsorships and partnerships are always disclosed. Our reviews are written to be fair and transparent — if a product is great, we'll say so; if it misses the mark, we’ll tell you why.
 
 If a manufacturer or advertiser wants changes to a published review, we will only act if the change is factual and verifiable. We do not let commercial relationships influence the editorial outcome.
 
@@ -53,6 +53,6 @@ Found an error or want to share your experience with a product we reviewed? We a
 
 Follow us on social media for quick unboxing snaps, behind-the-scenes looks, and short-form reviews. Subscribe to our newsletter for monthly roundups and exclusive buying guides.
 
-**Thanks for visiting Unbox Therepy — where products get naked so you can buy smarter.**
+**Thanks for visiting Unbox Therapy — where products get naked so you can buy smarter.**
 
 ---

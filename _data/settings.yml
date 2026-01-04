@@ -1,16 +1,16 @@
 #-------------------------------
 # Site Settings
-title: Unbox Therepy | Where products get naked.
+title: Unbox Therapy | Where products get naked.
 logo: /images/logo.webp
-logo_text: Unbox Therepy
-description: Unbox Therepy | Discover real-world unboxings, unbiased reviews, and transparent insights to help you choose the best products with confidence.
+logo_text: Unbox Therapy
+description: Unbox Therapy | Discover real-world unboxings, unbiased reviews, and transparent insights to help you choose the best products with confidence.
 
 
 #-------------------------------
 # Author Global Settings
 author:
   - author__name: JayFindsThings
-    author__bio: I Find Cool Things and review on Youtube and here at Unbox Therepy.
+    author__bio: I Find Cool Things and review on Youtube and here at Unbox Therapy.
     author__avatar: /images/Jay.webp
 
 
@@ -99,7 +99,7 @@ social:
 #-------------------------------
 # Contact Settings
 contact:
-  email: do.and.donts.info@gmail.com # Add your email for contant form
+  email: unboxtherepy.review@gmail.com # Add your email for contant form
 
 # NOTE
 

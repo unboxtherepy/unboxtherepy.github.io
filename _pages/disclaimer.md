@@ -2,14 +2,14 @@
 layout: page
 title: "Disclaimer"
 permalink: /disclaimer/
-description: "Disclaimer for Unbox Therepy – product review transparency, accuracy, and liability information."
+description: "Disclaimer for Unbox Therapy – product review transparency, accuracy, and liability information."
 ---
 
-Welcome to **[Unbox Therepy](unboxtherapy.github.io)**. The information provided on this website is for general informational and educational purposes only. By using our site, you agree to the terms outlined in this disclaimer.
+Welcome to **[Unbox Therapy](unboxtherapy.github.io)**. The information provided on this website is for general informational and educational purposes only. By using our site, you agree to the terms outlined in this disclaimer.
 
 ## 1. No Professional Advice
 
-All reviews, guides, comparisons, and opinions published on Unbox Therepy are based on personal testing, research, and user experience. However, they **do not constitute professional advice**. Always verify product details with the manufacturer before purchasing.
+All reviews, guides, comparisons, and opinions published on Unbox Therapy are based on personal testing, research, and user experience. However, they **do not constitute professional advice**. Always verify product details with the manufacturer before purchasing.
 
 ## 2. Accuracy of Information
 
@@ -23,7 +23,7 @@ We do our best to ensure the information provided is accurate and up to date. Ho
 
 Product specifications, pricing, and availability may change over time.
 
-Unbox Therepy is not liable for any errors or outdated information.
+Unbox Therapy is not liable for any errors or outdated information.
 
 ## 3. Affiliate & External Links
 
@@ -31,7 +31,7 @@ Some pages may contain **affiliate links**. This means we may earn a small commi
 
 We only recommend products we genuinely find useful based on real testing or strong user feedback.
 
-Unbox Therepy is **not responsible** for the content, claims, or practices of external websites linked from our pages.
+Unbox Therapy is **not responsible** for the content, claims, or practices of external websites linked from our pages.
 
 ## 4. Sponsored Reviews & Product Samples
 
@@ -41,7 +41,7 @@ Regardless of sponsorship, all opinions expressed are **honest, unbiased, and ba
 
 ## 5. Limitation of Liability
 
-Unbox Therepy, its owners, and contributors are **not liable** for any losses, damages, or issues arising from:
+Unbox Therapy, its owners, and contributors are **not liable** for any losses, damages, or issues arising from:
 
 * Use of any product reviewed
 * Reliance on information provided on the site

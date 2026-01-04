@@ -2,10 +2,10 @@
 layout: page
 title: "Terms and Conditions"
 permalink: /terms-and-conditions/
-description: "Terms and Conditions for Unbox Therepy — usage rules, disclaimers, copyrights, and user responsibilities."
+description: "Terms and Conditions for Unbox Therapy — usage rules, disclaimers, copyrights, and user responsibilities."
 ---
 
-Welcome to **[Unbox Therepy](unboxtherapy.github.io)**. By accessing or using our website, you agree to these Terms and Conditions. Please read them carefully before using the site.
+Welcome to **[Unbox Therapy](unboxtherapy.github.io)**. By accessing or using our website, you agree to these Terms and Conditions. Please read them carefully before using the site.
 
 ---
 
@@ -17,7 +17,7 @@ By accessing, browsing, or using this website, you acknowledge that you have rea
 
 ## 2. Website Content
 
-All content on Unbox Therepy, including reviews, images, blog posts, comparisons, and product information, is provided **for informational purposes only**.
+All content on Unbox Therapy, including reviews, images, blog posts, comparisons, and product information, is provided **for informational purposes only**.
 
 We make no guarantees regarding:
 
@@ -43,7 +43,7 @@ Users agree not to:
 
 ## 4. Intellectual Property Rights
 
-All content on Unbox Therepy is protected by copyright and intellectual property laws. This includes:
+All content on Unbox Therapy is protected by copyright and intellectual property laws. This includes:
 
 * Articles and reviews
 * Logos and branding
@@ -63,7 +63,7 @@ This does not affect our editorial independence. Full details are available in o
 
 ## 6. External Links
 
-Our website may include links to third-party websites. These external sites are not controlled or endorsed by Unbox Therepy.
+Our website may include links to third-party websites. These external sites are not controlled or endorsed by Unbox Therapy.
 
 We are **not responsible** for:
 
@@ -76,7 +76,7 @@ We are **not responsible** for:
 
 ## 7. Limitation of Liability
 
-Unbox Therepy and its owners are **not liable** for any damages arising from:
+Unbox Therapy and its owners are **not liable** for any damages arising from:
 
 * Use of our website or information
 * Inaccuracies or omissions

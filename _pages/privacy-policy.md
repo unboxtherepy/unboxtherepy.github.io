@@ -2,10 +2,10 @@
 layout: page
 title: "Privacy Policy"
 permalink: /privacy-policy/
-description: "Privacy Policy for Unbox Therepy — how we collect, use, and protect your information."
+description: "Privacy Policy for Unbox Therapy — how we collect, use, and protect your information."
 ---
 
-Thank you for visiting **[Unbox Therepy](unboxtherapy.github.io)**. Your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.
+Thank you for visiting **[Unbox Therapy](unboxtherapy.github.io)**. Your privacy is important to us. This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.
 
 ## 1. Information We Collect
 
@@ -37,7 +37,7 @@ We use collected data for the following purposes:
 
 ## 3. Third-Party Services
 
-Unbox Therepy may use third-party services including but not limited to:
+Unbox Therapy may use third-party services including but not limited to:
 
 * Analytics (e.g., Google Analytics)
 * Advertising & affiliate networks
@@ -67,7 +67,7 @@ We implement reasonable measures to protect personal information from unauthoriz
 
 ## 9. Children’s Privacy
 
-Unbox Therepy is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us and we will promptly delete it.
+Unbox Therapy is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us and we will promptly delete it.
 
 ## 10. International Visitors
 
