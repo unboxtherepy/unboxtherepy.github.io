@@ -68,7 +68,7 @@ def parse_with_gemini(html_content, sections, limit_per_section):
     
     section_names = []
     if 'big_launches' in sections:
-        section_names.append("Big Launches")
+        section_names.append("All Launches")
     if 'just_launched' in sections:
         section_names.append("Just Launched")
     
@@ -81,7 +81,7 @@ HTML CONTENT (truncated):
 {html_sample}
 
 INSTRUCTIONS:
-1. Find sections titled "Big Launches" and/or "Just Launched"
+1. Find sections titled "All Launches" and/or "Just Launched"
 2. Extract products ONLY from these specific sections
 3. Ignore all other sections (like "Coming Soon", "Yesterday's Launches", etc.)
 4. For each product, extract:
@@ -93,7 +93,7 @@ INSTRUCTIONS:
    - Launch date if available
    - Product URL/link
 
-5. Return ONLY products from "Big Launches" and "Just Launched" sections
+5. Return ONLY products from "All Launches" and "Just Launched" sections
 6. Maximum {limit_per_section} products per section
 
 OUTPUT FORMAT (JSON array):
@@ -106,12 +106,12 @@ OUTPUT FORMAT (JSON array):
     "platform": "JVZoo",
     "launch_date": "2026-01-05",
     "url": "https://muncheye.com/product-link",
-    "section": "Big Launches"
+    "section": "All Launches"
   }}
 ]
 
 CRITICAL RULES:
-- ONLY include products from "Big Launches" or "Just Launched" sections
+- ONLY include products from "All Launches" or "Just Launched" sections
 - DO NOT include products from other sections
 - Return valid JSON array
 - If no products found in target sections, return empty array []
@@ -188,7 +188,7 @@ def parse_with_beautifulsoup(html_content, sections, limit_per_section):
     products = []
     
     # Look for section headers
-    section_headers = soup.find_all(['h2', 'h3', 'div'], text=re.compile(r'(Big Launches|Just Launched)', re.IGNORECASE))
+    section_headers = soup.find_all(['h2', 'h3', 'div'], text=re.compile(r'(All Launches|Just Launched)', re.IGNORECASE))
     
     print(f"📍 Found {len(section_headers)} potential section headers")
     
@@ -333,11 +333,11 @@ def extract_date(text):
 
 def get_products_for_review(limit=5, categories=None):
     """
-    Get products ready for review from Big Launches and Just Launched sections
+    Get products ready for review from All Launches and Just Launched sections
     """
     print(f"\n{'='*60}")
     print(f"🎯 Fetching products from MunchEye")
-    print(f"🎯 Target sections: Big Launches, Just Launched")
+    print(f"🎯 Target sections: All Launches, Just Launched")
     print(f"{'='*60}")
     
     # Scrape products with increased limit to account for filtering
@@ -352,7 +352,7 @@ def get_products_for_review(limit=5, categories=None):
         print("❌ No products found in target sections")
         return []
     
-    print(f"\n✅ Found {len(products)} total products from Big Launches & Just Launched")
+    print(f"\n✅ Found {len(products)} total products from All Launches & Just Launched")
     
     # Remove duplicates
     seen = set()
@@ -385,7 +385,7 @@ if __name__ == "__main__":
     
     if products:
         print(f"\n{'='*60}")
-        print(f"📊 Sample Products from Big Launches & Just Launched")
+        print(f"📊 Sample Products from All Launches & Just Launched")
         print(f"{'='*60}")
         
         for i, product in enumerate(products[:10], 1):

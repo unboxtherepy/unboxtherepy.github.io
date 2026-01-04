@@ -89,14 +89,14 @@ def main():
     # Get products to review
     print(f"\n{'='*60}")
     print(f"Step 1: Fetching Products from MunchEye")
-    print(f"🎯 Targeting: Big Launches & Just Launched sections ONLY")
+    print(f"🎯 Targeting: All Launches & Just Launched sections ONLY")
     print(f"{'='*60}")
     
     # Get products from specific sections
     initial_products = get_products_for_review(limit=POSTS_PER_RUN * 3)
     
     if not initial_products:
-        print("❌ No products found in Big Launches or Just Launched sections")
+        print("❌ No products found in All Launches or Just Launched sections")
         return
     
     print(f"\n✅ Found {len(initial_products)} products from target sections")
