@@ -9,7 +9,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 def generate_review_article(product_data, sales_data, affiliate_link="[AFFILIATE_LINK_HERE]"):
     """
-    Generate comprehensive product review article
+    Generate comprehensive product review article with embedded images
     
     Args:
         product_data: Dict from muncheye_scraper
@@ -33,6 +33,17 @@ def generate_review_article(product_data, sales_data, affiliate_link="[AFFILIATE
     pricing_info = sales_data.get('pricing', [])
     bonuses = sales_data.get('bonuses', [])
     guarantee = sales_data.get('guarantee', '')
+    images = sales_data.get('images', [])
+    
+    # Prepare image information for Gemini
+    image_list = []
+    for idx, img in enumerate(images[:10], 1):  # Limit to 10 images
+        image_list.append({
+            'id': f'image_{idx}',
+            'url': img['url'],
+            'alt': img.get('alt', f'{product_name} screenshot {idx}'),
+            'markdown': f'![{img.get("alt", product_name)}]({img["url"]})'
+        })
     
     prompt = f"""
 Write a comprehensive, unbiased product review for: {product_name} by {creator}
@@ -57,29 +68,51 @@ BONUSES:
 GUARANTEE:
 {guarantee}
 
+AVAILABLE IMAGES FROM SALES PAGE:
+{json.dumps(image_list, indent=2)}
+
 AFFILIATE LINK PLACEHOLDER: {affiliate_link}
 
 ARTICLE REQUIREMENTS:
+
+## Image Usage Instructions:
+- You have {len(image_list)} images available from the product sales page
+- Use these images strategically throughout the article
+- Place images where they best illustrate the content
+- Insert images using markdown: ![alt text](image_url)
+- Use at least 3-5 images if available
+- Good places for images:
+  * After the introduction (overview screenshot)
+  * In the "Key Features" section (feature screenshots)
+  * In the "How Does It Work" section (workflow/process images)
+  * In the "Pricing" section (pricing table screenshot)
+  * In the "Interface/Dashboard" section
+- Add descriptive alt text for each image
+- Center images using HTML if needed: <p align="center"><img src="url" alt="description"></p>
 
 ## Structure:
 1. **Introduction** (2-3 paragraphs)
    - Hook with the problem this product solves
    - Brief overview of what the product is
    - Who it's for
+   - [INSERT RELEVANT IMAGE HERE - product overview/hero image]
 
 2. **What is {product_name}?** (H2)
    - Detailed explanation
    - Main purpose and functionality
    - Target audience
+   - [INSERT DASHBOARD/INTERFACE IMAGE IF AVAILABLE]
 
 3. **Key Features** (H2)
    - List 5-10 main features with explanations
    - Use H3 subheadings for each major feature
+   - [INSERT FEATURE SCREENSHOTS BETWEEN FEATURES]
    - Include practical use cases
 
 4. **How Does It Work?** (H2)
    - Step-by-step process
    - User experience overview
+   - [INSERT WORKFLOW/PROCESS IMAGES]
 
 5. **Benefits of Using {product_name}** (H2)
    - Concrete benefits
@@ -89,6 +122,7 @@ ARTICLE REQUIREMENTS:
 6. **Pricing & Packages** (H2)
    - Price breakdown (${price})
    - Value analysis
+   - [INSERT PRICING TABLE IMAGE IF AVAILABLE]
    - Money-back guarantee details
    - Include affiliate link with call-to-action
 
@@ -104,6 +138,7 @@ ARTICLE REQUIREMENTS:
 
 9. **Bonuses & Special Offers** (H2)
    - List bonus items
+   - [INSERT BONUS IMAGES IF AVAILABLE]
    - Limited-time offers
    - Exclusive deals
 
@@ -163,11 +198,12 @@ Format: <a href="{affiliate_link}" target="_blank" rel="nofollow">Get {product_n
 - Include affiliate disclosure: "This review contains affiliate links, meaning we may earn a commission if you make a purchase through our links at no extra cost to you."
 - Add comparison tables in markdown format
 - Include FAQ schema-friendly format
+- STRATEGICALLY EMBED THE AVAILABLE IMAGES THROUGHOUT THE ARTICLE
 
-Write the complete article now:
+Write the complete article now with images embedded:
 """
     
-    print("🤖 Generating comprehensive review article...")
+    print("🤖 Generating comprehensive review article with embedded images...")
     response = client.models.generate_content(
         model=TEXT_MODEL,
         contents=prompt
@@ -176,6 +212,10 @@ Write the complete article now:
     content = remove_front_matter(response.text)
     
     print(f"✅ Article generated ({len(content)} characters)")
+    
+    # Count embedded images
+    image_count = len(re.findall(r'!\[.*?\]\(.*?\)', content))
+    print(f"📸 Embedded {image_count} images in the article")
     
     return content
 

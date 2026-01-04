@@ -177,36 +177,83 @@ def extract_benefits(soup):
 
 
 def extract_images(soup, base_url):
-    """Extract product images"""
+    """Extract product images - prioritize high-quality screenshots"""
     images = []
     
     img_tags = soup.find_all('img')
     
-    for img in img_tags[:20]:
-        src = img.get('src') or img.get('data-src')
+    # Score images based on relevance
+    scored_images = []
+    
+    for img in img_tags[:30]:  # Check more images
+        src = img.get('src') or img.get('data-src') or img.get('data-lazy-src')
         if not src:
             continue
         
         if not src.startswith('http'):
             src = urljoin(base_url, src)
         
-        if any(skip in src.lower() for skip in ['logo', 'icon', 'badge', 'button', 'social']):
+        # Skip unwanted images
+        if any(skip in src.lower() for skip in ['logo', 'icon', 'badge', 'button', 'social', 'avatar', 'gravatar']):
             continue
         
-        alt = img.get('alt', '')
+        # Skip tiny images
+        width = img.get('width')
+        height = img.get('height')
+        if width and height:
+            try:
+                if int(width) < 200 or int(height) < 200:
+                    continue
+            except:
+                pass
         
-        if any(keyword in alt.lower() for keyword in ['product', 'screenshot', 'preview', 'demo']):
-            images.insert(0, {
-                'url': src,
-                'alt': alt
-            })
-        else:
+        alt = img.get('alt', '').lower()
+        img_class = ' '.join(img.get('class', [])).lower()
+        
+        # Calculate relevance score
+        score = 0
+        
+        # High priority: product screenshots, features, dashboard
+        if any(keyword in alt for keyword in ['screenshot', 'dashboard', 'interface', 'demo', 'preview', 'feature']):
+            score += 10
+        if any(keyword in img_class for keyword in ['screenshot', 'product', 'feature', 'demo']):
+            score += 8
+        
+        # Medium priority: general product images
+        if any(keyword in alt for keyword in ['product', 'software', 'app', 'tool']):
+            score += 5
+        
+        # Check if image is in main content area
+        parent = img.find_parent(['article', 'main', 'section'])
+        if parent:
+            score += 3
+        
+        # Prefer larger images
+        if 'large' in src.lower() or 'full' in src.lower():
+            score += 2
+        
+        scored_images.append({
+            'url': src,
+            'alt': img.get('alt', ''),
+            'score': score
+        })
+    
+    # Sort by score (highest first)
+    scored_images.sort(key=lambda x: x['score'], reverse=True)
+    
+    # Remove duplicates while preserving order
+    seen_urls = set()
+    for img in scored_images:
+        if img['url'] not in seen_urls:
+            seen_urls.add(img['url'])
             images.append({
-                'url': src,
-                'alt': alt
+                'url': img['url'],
+                'alt': img['alt']
             })
     
-    return images[:10]
+    print(f"📸 Found {len(images)} relevant images (sorted by quality)")
+    
+    return images[:15]  # Return top 15 images
 
 
 def extract_testimonials(soup):

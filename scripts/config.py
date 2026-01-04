@@ -15,7 +15,7 @@ TEXT_MODEL = "gemini-2.5-flash"
 FREEPIK_ENDPOINT = "https://api.freepik.com/v1/ai/text-to-image/flux-dev"
 
 # Generation settings
-POSTS_PER_RUN = 1  # How many product reviews to generate per run
+POSTS_PER_RUN = 3  # How many product reviews to generate per run
 
 # Image settings
 IMAGE_QUALITY = 80  # 1-100

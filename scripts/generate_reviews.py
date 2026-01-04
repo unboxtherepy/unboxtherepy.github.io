@@ -19,7 +19,7 @@ from review_article_generator import (
     create_review_front_matter,
     generate_image_prompt
 )
-from image_generator import generate_image_freepik
+from image_utils import try_download_featured_image, validate_image_file
 
 
 def submit_to_google_indexing_safe(post_url):
@@ -195,35 +195,28 @@ def main():
             
             # Generate featured image
             print(f"\n{'='*60}")
-            print(f"Step 6: Generating Featured Image")
+            print(f"Step 6: Setting Featured Image from Sales Page")
             print(f"{'='*60}")
             
+            featured_image_set = False
+            
+            # Try to use images from sales page
             if sales_data.get('images') and len(sales_data['images']) > 0:
-                print(f"📸 Using image from sales page...")
-                try:
-                    import requests
-                    from PIL import Image
-                    from io import BytesIO
-                    
-                    img_url = sales_data['images'][0]['url']
-                    response = requests.get(img_url, timeout=30)
-                    img = Image.open(BytesIO(response.content)).convert("RGB")
-                    
-                    img.thumbnail((1920, 1080), Image.Resampling.LANCZOS)
-                    img.save(image_file, "WEBP", quality=IMAGE_QUALITY, optimize=True)
-                    
-                    print(f"✅ Image downloaded and optimized")
-                    
-                except Exception as e:
-                    print(f"⚠️  Could not download sales page image: {e}")
-                    print(f"🎨 Generating AI image instead...")
-                    
-                    image_prompt = generate_image_prompt(f"{product_name} product review")
-                    generate_image_freepik(image_prompt, image_file)
+                print(f"📸 Found {len(sales_data['images'])} images from sales page")
+                
+                # Try to download featured image
+                featured_image_set = try_download_featured_image(
+                    sales_data['images'],
+                    image_file
+                )
+            
+            if not featured_image_set:
+                print(f"\n⚠️  No featured image could be set")
+                print(f"💡 Article will still have images embedded from sales page URLs")
+                # Create a simple placeholder or skip
+                # For now, we'll just note it in logs
             else:
-                print(f"🎨 Generating AI image...")
-                image_prompt = generate_image_prompt(f"{product_name} software review screenshot")
-                generate_image_freepik(image_prompt, image_file)
+                print(f"\n✅ Featured image successfully set from sales page")
             
             # Save post
             print(f"\n{'='*60}")
