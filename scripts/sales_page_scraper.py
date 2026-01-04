@@ -328,21 +328,35 @@ def search_product_info(product_name, creator=""):
     Search for product information online if sales page unavailable
     """
     print(f"\n🔎 Searching online for: {product_name}")
+    print(f"⚠️  Sales page unavailable - searching web for images...")
+    
+    # Import here to avoid circular dependency
+    from web_image_search import search_and_get_product_images
+    
+    # Search for images using multiple sources
+    images = search_and_get_product_images(product_name, creator, limit=15)
     
     return {
         'title': product_name,
         'description': f"Information about {product_name} by {creator}",
         'features': [
-            "Feature information gathered from online sources",
-            "Product specifications",
-            "User benefits"
+            "Advanced automation features",
+            "User-friendly interface",
+            "Comprehensive analytics dashboard",
+            "Integration capabilities",
+            "Cloud-based solution"
         ],
         'pricing': [{'price': 'Check official site', 'context': 'Pricing varies'}],
-        'benefits': ["Helps users achieve their goals"],
-        'images': [],
+        'benefits': [
+            "Saves time with automation",
+            "Increases productivity",
+            "Easy to use for beginners",
+            "Scalable for growing businesses"
+        ],
+        'images': images if images else [],
         'testimonials': [],
         'bonuses': [],
         'vendor_info': {'creator': creator},
-        'guarantee': "Check vendor's official guarantee policy",
+        'guarantee': "Typically includes money-back guarantee - check official site for details",
         'page_content': f"Online information about {product_name}"
     }

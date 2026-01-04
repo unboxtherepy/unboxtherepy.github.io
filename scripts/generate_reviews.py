@@ -161,14 +161,31 @@ def main():
         try:
             # Scrape sales page
             print(f"\n{'='*60}")
-            print(f"Step 3: Extracting Sales Page Information")
+            print(f"Step 3: Extracting Product Information")
             print(f"{'='*60}")
             
             sales_data = scrape_sales_page(product['url'])
             
-            if not sales_data or not sales_data.get('features'):
-                print(f"⚠️  Sales page data incomplete, searching online...")
+            # Check if we got good data from sales page
+            has_sales_data = (
+                sales_data and 
+                (sales_data.get('features') or sales_data.get('images'))
+            )
+            
+            if not has_sales_data:
+                print(f"\n⚠️  Sales page data incomplete or unavailable")
+                print(f"🌐 Falling back to web search for product info and images...")
                 sales_data = search_product_info(product_name, creator)
+            else:
+                print(f"✅ Sales page data extracted successfully")
+                print(f"   Features: {len(sales_data.get('features', []))}")
+                print(f"   Images: {len(sales_data.get('images', []))}")
+            
+            # Log image availability
+            if sales_data.get('images'):
+                print(f"\n📸 {len(sales_data['images'])} images available for article")
+            else:
+                print(f"\n⚠️  No images found - article will be text-only")
             
             # Generate review article
             print(f"\n{'='*60}")
@@ -195,28 +212,47 @@ def main():
             
             # Generate featured image
             print(f"\n{'='*60}")
-            print(f"Step 6: Setting Featured Image from Sales Page")
+            print(f"Step 6: Setting Featured Image")
             print(f"{'='*60}")
             
             featured_image_set = False
             
-            # Try to use images from sales page
+            # Strategy 1: Try sales page images
             if sales_data.get('images') and len(sales_data['images']) > 0:
-                print(f"📸 Found {len(sales_data['images'])} images from sales page")
+                print(f"📸 Found {len(sales_data['images'])} images available")
+                print(f"🎯 Strategy: Using images from sales page/web search")
                 
-                # Try to download featured image
                 featured_image_set = try_download_featured_image(
                     sales_data['images'],
                     image_file
                 )
             
+            # Strategy 2: If no sales images, search web
             if not featured_image_set:
-                print(f"\n⚠️  No featured image could be set")
-                print(f"💡 Article will still have images embedded from sales page URLs")
-                # Create a simple placeholder or skip
-                # For now, we'll just note it in logs
+                print(f"\n⚠️  Could not get image from sales page")
+                print(f"🔍 Strategy: Searching web for product images...")
+                print(f"📡 Sources: Bing, DuckDuckGo, Product Hunt, Reddit")
+                
+                from web_image_search import get_product_image_from_web
+                
+                try:
+                    best_image = get_product_image_from_web(product_name, creator)
+                    
+                    if best_image:
+                        featured_image_set = try_download_featured_image(
+                            [best_image],
+                            image_file
+                        )
+                except Exception as e:
+                    print(f"❌ Web image search failed: {e}")
+            
+            # Final check
+            if featured_image_set:
+                print(f"\n✅ Featured image successfully set!")
             else:
-                print(f"\n✅ Featured image successfully set from sales page")
+                print(f"\n⚠️  No featured image could be set")
+                print(f"💡 Post will be published without featured image")
+                # Note: Jekyll can handle posts without featured images
             
             # Save post
             print(f"\n{'='*60}")
